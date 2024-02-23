@@ -1,23 +1,31 @@
-var number = 80000;
+function integerConverter(number) {
+  // Using the toLocaleString method
+  var formattedNumber = number.toLocaleString(
+    "en-US", // determines the formatting conventions.
+    {
+      minimumFractionDigits: 2, // min number of decimal digits, if no decimal, 2 zeroes will be add to the end
+      maximumFractionDigits: 2, // max number of decimal digits, if many decimal points, it will be rounded to 2 decimal points
+    }
+  );
+  return formattedNumber;
+}
 
-// Using the toLocaleString method
-
-var formattedNumber = number.toLocaleString(
-  "en-US", // determines the formatting conventions.
-  {
-    minimumFractionDigits: 2, // min number of decimal digits, if no decimal, 2 zeroes will be add to the end
-    maximumFractionDigits: 2, // max number of decimal digits, if many decimal points, it will be rounded to 2 decimal points
+// check for invalid data type
+function formattingMachine(input) {
+  if (typeof input === "number") {
+    // if the input is all integer, proceed with formatting
+    return integerConverter(input);
+  } else if (typeof input === "string" && input.match(/^-?[0-9]+$/)) {
+    // if the input is a number in string, convert to integer, then proceed with formatting
+    return integerConverter(parseInt(input));
+  } else {
+    // if the input is not a number, return an empty string
+    return "";
   }
-);
-var result = "RM " + formattedNumber; // add "RM" to the formatted number
-console.log(result); // Output: "RM 80,000.00"
+}
 
-// Convert from formatted string to number
+// negative number is still permissible
 
-let num = parseFloat(
-  // parseFloat is used to convert string to number
-  result.replace(/,/g, "") //remove all commas, g is global which means all commas
-    .replace("RM ", "")
-); //  "RM " is removed
+var num = true;
 
-console.log(num); //display integer
+console.log(formattingMachine(num)); // 1,000,000.00
