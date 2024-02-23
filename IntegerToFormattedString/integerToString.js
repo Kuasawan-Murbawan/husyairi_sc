@@ -1,6 +1,6 @@
 var number = 80000;
 
-// Method 1: Using the toLocaleString method
+// Using the toLocaleString method
 
 var formattedNumber = number.toLocaleString(
   "en-US", // determines the formatting conventions.
@@ -21,4 +21,4 @@ let num = parseFloat(
     .replace("RM ", "")
 ); //  "RM " is removed
 
-console.log(num); //
+console.log(num); //display integer
