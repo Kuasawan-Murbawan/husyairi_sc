@@ -15,9 +15,9 @@ function formattingMachine(input) {
   if (typeof input === "number") {
     // if the input is all integer, proceed with formatting
     return integerConverter(input);
-  } else if (typeof input === "string" && input.match(/^-?[0-9]+$/)) {
+  } else if (typeof input === "string" && input.match(/^-?[0-9]*\.?[0-9]+$/)) {
     // if the input is a number in string, convert to integer, then proceed with formatting
-    return integerConverter(parseInt(input));
+    return integerConverter(parseFloat(input));
   } else {
     // if the input is not a number, return an empty string
     return "";
@@ -25,5 +25,5 @@ function formattingMachine(input) {
 }
 // negative number is still permissible
 
-var num = 1000000;
+var num = "1000.12";
 console.log(formattingMachine(num)); // 1,000,000.00
