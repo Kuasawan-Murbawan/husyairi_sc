@@ -23,9 +23,7 @@ function formattingMachine(input) {
     return "";
   }
 }
-
 // negative number is still permissible
 
-var num = true;
-
+var num = 1000000;
 console.log(formattingMachine(num)); // 1,000,000.00
