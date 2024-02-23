@@ -16,8 +16,7 @@ console.log(result); // Output: "RM 80,000.00"
 
 let num = parseFloat(
   // parseFloat is used to convert string to number
-  result
-    .replace(/,/g, "") //remove all commas, g is global which means all commas
+  result.replace(/,/g, "") //remove all commas, g is global which means all commas
     .replace("RM ", "")
 ); //  "RM " is removed
 
