@@ -25,5 +25,7 @@ function formattingMachine(input) {
 }
 // negative number is still permissible
 
-var num = "1000.12";
+var num = 3154325.32;
 console.log(formattingMachine(num)); // 1,000,000.00
+
+module.exports = formattingMachine;
